@@ -53,3 +53,14 @@ function displayForecast(data) {
         }
     });
 }
+
+function updateSearchHistory(city) {
+    const historyUl = document.getElementById('search-history');
+    const li = document.createElement('li');
+    li.textContent = city;
+    li.addEventListener('click', function() {
+        fetchWeather(city);
+        fetchForecast(city);
+    });
+    historyUl.appendChild(li);
+}
