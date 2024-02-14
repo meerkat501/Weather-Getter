@@ -6,9 +6,9 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f4f4f4;
     padding: 20px;
     line-height: 1.6;
+    background-image: url(./assets/weather.webp);
 }
 
 h1 {
@@ -46,13 +46,11 @@ button:hover {
 #current-weather, #forecast-weather {
     margin-top: 20px;
     padding: 20px;
-    background-color: white;
     border-radius: 8px;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 #forecast-weather div {
-    background-color: #e9ecef;
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 8px;
@@ -76,4 +74,10 @@ button:hover {
 
 #search-history li:hover {
     background-color: #0056b3;
+}
+
+#current-weather img {
+    width: 50px;
+    height: auto;
+    margin-bottom: 10px;
 }
