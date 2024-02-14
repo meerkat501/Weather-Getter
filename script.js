@@ -45,18 +45,23 @@ function displayCurrentWeather(data) {
 function displayForecast(data) {
     const forecastDiv = document.getElementById('forecast-weather');
     forecastDiv.innerHTML = '<h2>5-Day Forecast</h2>';
-    data.list.forEach((forecast, index) => {
-        if (index % 8 === 0) { 
-            forecastDiv.innerHTML += `
-                <div>
-                    <p>Date: ${forecast.dt_txt}</p>
-                    <p>Temp: ${forecast.main.temp}°F</p>
-                    <p>Humidity: ${forecast.main.humidity}%</p>
-                </div>
-            `;
-        }
-    });
+    
+    for (let i = 0; i < data.list.length; i += 8) { 
+        const forecast = data.list[i];
+        const iconCode = forecast.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/wn/${iconCode}.png`;
+        
+        forecastDiv.innerHTML += `
+            <div class="forecast-item">
+                <p>Date: ${forecast.dt_txt.split(' ')[0]}</p> <!-- Simplify date display -->
+                <img src="${iconUrl}" alt="Weather icon" />
+                <p>Temp: ${forecast.main.temp}°C</p>
+                <p>Humidity: ${forecast.main.humidity}%</p>
+            </div>
+        `;
+    }
 }
+
 
 function updateSearchHistory(city) {
     const historyUl = document.getElementById('search-history');
